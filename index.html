@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laurent Frendo — Votre plomberie, notre expertise, votre confiance</title>
+  <meta name="description" content="Laurent Frendo vous propose des solutions de plomberie fiables et durables, réalisées par une équipe de professionnels expérimentés. Nous utilisons les meilleur">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Bold:wght@400;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary:   #003D7A;
+      --secondary: #00A4EF;
+      --accent:    #FF6B35;
+      --font-titre: 'Roboto Bold', serif;
+      --font-corps: 'Open Sans', sans-serif;
+      --white: #ffffff;
+      --light: #f8f8f6;
+      --dark:  #1a1a1a;
+      --gray:  #666666;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-corps);
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--primary);
+      color: var(--white);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    header .logo {
+      font-family: var(--font-titre);
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    header nav a {
+      color: var(--white);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.85;
+      transition: opacity .2s;
+    }
+    header nav a:hover { opacity: 1; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 88vh;
+      background: linear-gradient(135deg, var(--primary) 0%, color-mix(in srgb, var(--primary) 70%, black) 100%);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 30%, var(--accent) 0%, transparent 60%);
+      opacity: 0.15;
+    }
+    .hero-content { position: relative; max-width: 680px; }
+    .hero h1 {
+      font-family: var(--font-titre);
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .hero p {
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      opacity: 0.9;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 500;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+      cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+    }
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.7);
+      color: var(--white);
+      margin-left: 1rem;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 1.5rem; }
+    .container { max-width: 960px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    h2 {
+      font-family: var(--font-titre);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    /* ── SERVICES ── */
+    .services { background: var(--light); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .service-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      border-top: 4px solid var(--accent);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.10); }
+    .service-card .icon { font-size: 2rem; margin-bottom: 1rem; }
+    .service-card h3 {
+      font-family: var(--font-titre);
+      font-size: 1.15rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    .service-card p { font-size: 0.9rem; color: var(--gray); }
+
+    /* ── ABOUT ── */
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-visual {
+      background: linear-gradient(135deg, var(--secondary), var(--accent));
+      border-radius: 16px;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      opacity: 0.85;
+    }
+    .about-text p { color: var(--gray); margin-bottom: 1.5rem; }
+
+    /* ── CONTACT ── */
+    .contact { background: var(--primary); color: var(--white); text-align: center; }
+    .contact h2 { color: var(--white); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    .contact-item { padding: 1.5rem; }
+    .contact-item .contact-icon { font-size: 2rem; margin-bottom: 0.75rem; opacity: 0.8; }
+    .contact-item h3 { font-family: var(--font-titre); font-size: 1rem; margin-bottom: 0.5rem; }
+    .contact-item p, .contact-item a {
+      font-size: 1.05rem;
+      opacity: 0.9;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .contact-item a:hover { opacity: 1; text-decoration: underline; }
+
+    /* ── BANNER GRIZZCORP ── */
+    .grizzcorp-banner {
+      background: #111;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 0.75rem 1rem;
+      font-size: 0.78rem;
+    }
+    .grizzcorp-banner a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .grizzcorp-banner a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0a0a0a;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.82rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      header nav { display: none; }
+      .btn-outline { display: none; }
+      .about-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .about-visual { height: 180px; font-size: 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">Laurent Frendo</div>
+  <nav>
+    <a href="#services">Nos services</a>
+    <a href="#about">À propos</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Laurent Frendo</h1>
+    <p>Votre plomberie, notre expertise, votre confiance</p>
+    <a href="#contact" class="btn btn-primary">Nous contacter</a>
+    <a href="#services" class="btn btn-outline">Nos services</a>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-label">Ce que nous faisons</div>
+    <h2>Nos services</h2>
+    <div class="services-grid">
+      
+      <div class="service-card">
+        <div class="icon">🚿</div>
+        <h3>Dépannage</h3>
+        <p>Intervention rapide pour fuites et pannes.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="icon">🛁</div>
+        <h3>Installation</h3>
+        <p>Pose de sanitaires, douches et baignoires.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="icon">🔧</div>
+        <h3>Rénovation</h3>
+        <p>Rénovation complète de salle de bain.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="icon">🌡️</div>
+        <h3>Chauffage</h3>
+        <p>Installation et entretien de chaudières.</p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-visual">🔧</div>
+      <div class="about-text">
+        <div class="section-label">Notre histoire</div>
+        <h2>À propos de nous</h2>
+        <p>Laurent Frendo vous propose des solutions de plomberie fiables et durables, réalisées par une équipe de professionnels expérimentés. Nous utilisons les meilleures marques internationales comme Atlantic, Grohe et Geberit pour garantir la qualité de chaque intervention. Installation, réparation, maintenance : nous sommes là pour résoudre tous vos problèmes rapidement et efficacement.</p>
+        <p>Basés à Gouvieux, nous mettons notre expertise au service de nos clients depuis de nombreuses années.</p>
+        <a href="#contact" class="btn btn-primary">Prendre rendez-vous</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-label">Retrouvez-nous</div>
+    <h2>Contactez-nous</h2>
+    <div class="contact-grid">
+      
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <h3>Adresse</h3>
+        <p>17 allée Pierre et Marie Curie 60270 Gouvieux</p>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🕐</div>
+        <h3>Horaires</h3>
+        <p>Lundi–Vendredi : 8h–18h | Urgences 24h/24</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BANNER GRIZZCORP -->
+<div class="grizzcorp-banner">
+  Site vitrine créé par <a href="#">GrizzCorp</a> — Vous souhaitez personnaliser ce site ? <a href="mailto:jgrisel@gmail.com">Contactez-nous</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 Laurent Frendo — Tous droits réservés</p>
+</footer>
+
+</body>
+</html>
